@@ -26,16 +26,16 @@ variable "asg_security_group_name" {
 variable "instance_type" {
   type = map(any)
   default = {
-    "default" = "t2.nano"
-    "dev"     = "t2.small"
-    "staging" = "t2.medium"
-    "prod"    = "t2.medium"
+    "default" = "t2.micro"
+    "dev"     = "t2.micro"
+    "staging" = "t2.micro"
+    "prod"    = "t2.micro"
   }
 }
 
 variable "key_name" {
   type    = string
-  default = "devops-gl"
+  default = "DevOps-key"
 }
 
 variable "lt_name" {
