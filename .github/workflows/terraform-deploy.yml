@@ -7,6 +7,7 @@ on:
 
 jobs:
   dev:
+    name: Development Enironment
     runs-on: ubuntu-latest
 
     steps:
@@ -46,6 +47,7 @@ jobs:
           aws autoscaling start-instance-refresh --auto-scaling-group-name dev-asg-dashboard --preferences '{"InstanceWarmup": 60, "MinHealthyPercentage": 50}'
 
   staging:
+    name: Staging Enironment
     needs: dev
     runs-on: ubuntu-latest
 
@@ -87,6 +89,7 @@ jobs:
 
 
   prod:
+    name: Production Enironment
     needs: staging
     runs-on: ubuntu-latest
 
@@ -128,6 +131,7 @@ jobs:
 
   destroy:
     name: Terraform Destroy
+    needs: prod
     runs-on: ubuntu-latest
     environment: destroy
 
